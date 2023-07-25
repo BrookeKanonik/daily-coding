@@ -8,12 +8,10 @@ The input string will only consist of lower case letters and/or spaces.
 
 // My initial code:
 
-function getCount(str) {
-  
-    function getCount(str) {
+function getCount(str) { 
 
         return str.match(/[aeiou]/ig) !== null ? str.match(/[aeiou]/ig).length : 0
-      }
+}
 
 // Best practice (non regex):
 
@@ -29,5 +27,5 @@ function getCount(str) {
     }
     
     return vowelsCount;
-  }
-  
+}
+
