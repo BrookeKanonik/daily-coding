@@ -30,3 +30,4 @@ function getCount(str) {
     
     return vowelsCount;
   }
+  
