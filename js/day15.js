@@ -11,7 +11,7 @@ Examples: (Input --> Output)
 [] --> []
 ["a", "b", "c"] --> ["1: a", "2: b", "3: c"]
 
-//Initial code:
+//Initial code (works):
 
 var number=function(array){
     return array.map((element, index)=> `${Number(index+1)}: ${element}`)

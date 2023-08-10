@@ -4,7 +4,7 @@ Write a function which calculates the average of the numbers in a given list.
 
 Note: Empty arrays should return 0.
 
-//My initial code:
+//Initial Code (works):
 
 const findAverage = array => array[0] === undefined ? 0 : array.reduce((a,b) => a+b,0)/array.length
 

@@ -8,7 +8,7 @@ Examples:(Input --> Output)
 625 --> 676
 114 --> -1 since 114 is not a perfect square
 
-//My initial Solution:
+//Initial Code (works):
 
 function findNextSquare(sq) {
     if (sq % Math.sqrt(sq) === 0){

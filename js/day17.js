@@ -7,7 +7,7 @@ Example
 "identifier"   =>  "identifier"
 ""             =>  ""
 
-//Initial code:
+//Initial code (works):
 
 function solution(string) {
 

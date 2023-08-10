@@ -6,7 +6,7 @@ Ribonucleic acid, RNA, is the primary messenger molecule in cells. RNA differs s
 
 Create a function which translates a given DNA string into RNA.
 
-//My code:
+//Initial Code (works):
 
 function DNAtoRNA(dna) {
     return dna.replaceAll('T', 'U')
