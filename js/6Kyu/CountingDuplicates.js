@@ -12,7 +12,7 @@ Example
 "aA11" -> 2 # 'a' and '1'
 "ABBA" -> 2 # 'A' and 'B' each occur twice
 
-//Initial code:
+//Initial code (works):
 
 //parameters are letters that can be capital or not in the form of a string. need to make it an array.
 
