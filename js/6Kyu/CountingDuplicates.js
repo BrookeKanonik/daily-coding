@@ -41,3 +41,23 @@ function duplicateCount(text){
       return arr.indexOf(val) !== i && arr.lastIndexOf(val) === i;
     }).length;
   }
+
+  // Dummy code:
+
+function findX (arr){
+    let result = []
+    for (let i = 0; i<arr.length; i++){
+        if (arr[i].includes('x')){
+            result.push(`${i}, ${arr[i].indexOf('x')}`)
+        }
+        if (result.length !== 1){
+            return []
+        }else {
+            return result
+        }
+    }
+}
+
+findX ([['x', 'o', 'o'],['o', 'x','o'] ])
+findX ([['o', 'o', 'o'],['o', 'x','o'] ])
+findX ([[] ])
