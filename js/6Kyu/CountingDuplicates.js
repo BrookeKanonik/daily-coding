@@ -1,7 +1,7 @@
 //Instructions:
 
-Count the number of Duplicates
-Write a function that will return the count of distinct case-insensitive alphabetic characters and numeric digits that occur more than once in the input string. The input string can be assumed to contain only alphabets (both uppercase and lowercase) and numeric digits.
+ Count the number of Duplicates
+ Write a function that will return the count of distinct case-insensitive alphabetic characters and numeric digits that occur more than once in the input string. The input string can be assumed to contain only alphabets (both uppercase and lowercase) and numeric digits.
 
 Example
 "abcde" -> 0 # no characters repeats more than once
@@ -41,3 +41,19 @@ function duplicateCount(text){
       return arr.indexOf(val) !== i && arr.lastIndexOf(val) === i;
     }).length;
   }
+
+//Additonal optimized code for run time: 
+
+function duplicateCount (text){
+    let map = {}
+    let count = 0
+    let newArr = text.toLowerCase().split('').forEach(element => {
+        if (map.hasOwnProperty(element) && map[element] === 1){
+            map[element] = map[element] + 1;
+            count++
+        } else {
+            map[element] = 1;
+        }
+    });
+    return count;
+}
