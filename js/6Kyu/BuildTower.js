@@ -62,3 +62,19 @@ function towerBuilder(nFloors) {
     }
     return tower;
   }
+
+//Danny's solution:
+
+function towerBuilder(nFloors) {
+    const tower = [];
+    let floor = "*"
+    let padding = ''
+    padding = padding + ' '.repeat(nFloors-1);
+    for (let i=0; i < nFloors; i++){
+      let level = padding + floor + padding;
+      tower.push(level);
+      floor = floor + "**"
+      padding = padding.slice(1);
+    }
+    return tower;
+  }
