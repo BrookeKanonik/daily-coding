@@ -26,7 +26,7 @@ Examples:
 (Condition 2) not fulfilled).
 */
 
-//Initial code (works):
+//Initial code (works) and best practice:
 
 function bouncingBall(h,  bounce,  window) { //parameters = h = height of the floor above ground level 
     let count = -1 //as it is a while loop, we want to start out with 1 for the initial drop, so -1 + 2 in the loop will equal 1. this is due to the initial drop, and after there is a pattern of if the ball is viewed at the window/when it will bounce down.
@@ -41,3 +41,11 @@ function bouncingBall(h,  bounce,  window) { //parameters = h = height of the fl
       return -1 
     }
   } 
+
+  //Other variation:
+
+  function bouncingBall(h,  bounce,  window) {
+    var rebounds = -1;
+    if (bounce > 0 && bounce < 1) while (h > window) rebounds+=2, h *= bounce;
+    return rebounds;
+  }
