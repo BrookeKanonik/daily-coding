@@ -76,3 +76,4 @@ function productFib(prod){
     while(a * b < prod) [a, b] = [b, a + b];
     return [a, b, a * b === prod];
   }
+
