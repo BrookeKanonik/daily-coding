@@ -45,3 +45,5 @@ function rentalCarCost(d) { //parameter will always be a number
   function rentalCarCost(days) {
     return baseCost(days, 40) - discountRate(days);
   }
+
+  
