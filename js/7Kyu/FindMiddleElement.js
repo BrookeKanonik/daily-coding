@@ -31,4 +31,13 @@ function gimme (triplet) { //take in an array of numbers
   //indexOf at worst is n 
   
   // --> n + nlogn technically but can say nlogn since it is greater
-  
+
+//Best practices:
+
+function gimme(a) {
+    return a.indexOf(a.concat().sort(function(a, b) { return a - b })[1])
+  }
+
+const gimme = function (arr) {
+    return arr.indexOf([...arr].sort((x, y) => x > y)[1]);
+  };
