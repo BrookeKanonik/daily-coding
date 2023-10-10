@@ -52,5 +52,6 @@ function incrementString(input) {
       return up.toString().length > p2.length ? p1.slice(0, -1) + up : p1 + up;
     });
   }
+  
 
-  let incrementString = str => str.replace(/([0-8]|\d?9+)?$/, (e) => e ? + e + 1 : 1)
+let incrementString = str => str.replace(/([0-8]|\d?9+)?$/, (e) => e ? + e + 1 : 1)
