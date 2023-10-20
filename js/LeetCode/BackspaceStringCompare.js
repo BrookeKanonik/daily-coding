@@ -150,8 +150,52 @@ var backspaceCompare = function(s, t) {
     return true;
 }
 
-Time complexity: O(N)
-The time complexity of this solution is O(N), where N is the length of the longer input string among s and t. The reason for this is that the algorithm processes each character of both strings once, and the while loop runs until both pointers have reached the beginning of their respective strings.
+// Time complexity: O(N)
+// The time complexity of this solution is O(N), where N is the length of the longer input string among s and t. The reason for this is that the algorithm processes each character of both strings once, and the while loop runs until both pointers have reached the beginning of their respective strings.
 
-Space complexity: O(1)
-The space complexity of this solution is O(1) because it uses a constant amount of extra space regardless of the input string lengths. The only extra space used is for variables and loop counters, and it doesn't depend on the size of the input strings.
+// Space complexity: O(1)
+// The space complexity of this solution is O(1) because it uses a constant amount of extra space regardless of the input string lengths. The only extra space used is for variables and loop counters, and it doesn't depend on the size of the input strings.
+
+/**
+ * @param {string} s
+ * @param {string} t
+ * @return {boolean}
+ */
+var backspaceCompare = function(s, t) {
+    function get_next_valid_char_index(str, end) {
+        let backspace_count = 0;
+        while (end >= 0) {
+            if (str.charAt(end) === '#') {
+                backspace_count++;
+            } else if (backspace_count > 0) {
+                backspace_count--;
+            } else {
+                break;
+            }
+            end--;
+        }
+        return end;
+    }
+
+    let ps = s.length - 1;
+    let pt = t.length - 1;
+
+    while (ps >= 0 || pt >= 0) {
+        ps = get_next_valid_char_index(s, ps);
+        pt = get_next_valid_char_index(t, pt);
+
+        if (ps < 0 && pt < 0) {
+            return true;
+        }
+        if (ps < 0 || pt < 0) {
+            return false;
+        } else if (s.charAt(ps) !== t.charAt(pt)) {
+            return false;
+        }
+
+        ps--;
+        pt--;
+    }
+
+    return true;    
+};
