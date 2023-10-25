@@ -8,6 +8,7 @@ Return the maximum amount of water a container can store.
 
 Notice that you may not slant the container.
 
+
  
 
 Example 1:
@@ -28,6 +29,27 @@ n == height.length
 2 <= n <= 105
 0 <= height[i] <= 104
 */
+/*
+Area = length * width
+8*5 = 40
+7*7 = 49
+
+1. Create a variable to return the final number
+2. maxArea = height * length
+3. [1,8,6,2,5,4,8,3,7]
+    ^                ^ to have index pointers
+4. have 2 pointers at each end of the array 
+5. length will be index of end pointer = first pointer
+
+area = 1 * (right - left) 8 = 8
+area = 7 * 7 = 49
+area = 
+
+//keep pushing the lower number until you hit the same one
+//so we will stop when the numbers are the same 
+//can do a Math.min(height[left], height[right])
+ */
+
 
 //Initial code (works):
 
