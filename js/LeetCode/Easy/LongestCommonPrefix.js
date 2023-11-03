@@ -41,8 +41,8 @@ var longestCommonPrefix = function(strs) { //taking in a parameter that is an ar
     //we will need to find a way to look at all the first letters in each word. recursion??
     let current = 0;
     let word = '';
-    let different = '';
-    while (different === '' && current !== strs.length){ //to check if it hit the else case and to make sure we didnt go past the last character incase they are all the same word
+    let different = false;
+    while (!different && current < strs[0].length ) { //to check if it hit the else case and to make sure we didnt go past the last character incase they are all the same word
         for (let i = 0; i <strs.length; i++){
             if (i === 0){
                 word += strs[i][current];
@@ -50,15 +50,12 @@ var longestCommonPrefix = function(strs) { //taking in a parameter that is an ar
                 if (word[current] !== strs[i][current]){
                     //word[current] = '';
                     word = word.slice(0,-1) //REMEMBER, slice need to reinitiate 
-                    console.log(word)
-                    different = 'yes';
+                    different = true;
                     break; //break to get out so if this happens not at the last word, we dont remove more letters from the word variable
                 }
             } 
         }
-
         current ++
     }
     return word
- 
 }; //returning a value as a string of the longest common prefix all the strings have, if they do not have anything in common, return ""
