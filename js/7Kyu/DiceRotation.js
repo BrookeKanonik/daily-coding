@@ -59,9 +59,11 @@ while (counting < dieArray.length ){
 
 //Best practices:
 
-const rotations = arr =>
+const rotations = arr => 
     Math.min(...arr
              .map( el => 
                   arr.reduce( (acc, e)=> acc + (el !== e ) + ( el === 7 - e), 0 )
                  )
-            )^0
+            )^0 // ^0 works if the array is empty to give back 0. based on binary numbers
+
+          
