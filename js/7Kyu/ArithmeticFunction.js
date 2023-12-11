@@ -42,3 +42,4 @@ function arithmetic(a, b, operator){ //taking in a number, number, and string to
   
   //result will be the result of computing the operation as a number
   //example: 3, 2, multiplication = 6
+  //
