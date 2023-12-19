@@ -23,3 +23,23 @@ function largestPairSum(numbers){
     numbers.sort(function(a, b){ return b - a });
     return numbers[0] + numbers[1];
   }
+
+// Optimal way we came up with
+
+function largestPairSum (numbers) { //sorting, you can also set values to variables and compare [2,11,14,4,5]
+    let first;
+    let second;
+
+
+    for (let i = 0; i < numbers.length; i++){
+        if (second === undefined || numbers[i] > second){
+            if (first === undefined || numbers[i] > first){
+                second = first
+                first = numbers[i]               
+            }else {
+                second = numbers[i]
+            }
+        }
+    }
+    return first + second
+}
