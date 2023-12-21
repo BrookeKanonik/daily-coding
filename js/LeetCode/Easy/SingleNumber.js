@@ -69,4 +69,4 @@ var singleNumber = function(nums) {
     } return uniqNum;       // Return the unique number...
 };
 
-//REMEMBER BITWISE XOR (^)
+//REMEMBER BITWISE XOR (^) EXAMPLE: 2 ^ 2 ^ 6 = 6 SINCE 2 ^ 2 CANCEL OUT
