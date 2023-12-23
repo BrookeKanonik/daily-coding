@@ -33,3 +33,9 @@ function factorial(n) //need to remember to set initial to 1 so that result does
  
 //BOTH HAVE RANGE ERRORS?
 
+//Best practice and solution:
+function factorial(n) {
+    if (n < 0 || n > 12)
+      throw new RangeError();
+    return n <= 1 ? 1 : n * factorial(n - 1);
+  }
