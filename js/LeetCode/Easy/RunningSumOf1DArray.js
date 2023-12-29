@@ -45,3 +45,16 @@ const runningSum = nums => {
 }
 
 //Memory is better but runtime is worse 
+
+//Leetcode example:
+
+/**
+ * @param {number[]} nums
+ * @return {number[]}
+ */
+const runningSum = nums => {
+    let sum = 0;
+    return nums.map(num => sum += num);
+  };
+
+//Initial code seems to be best approach overall
