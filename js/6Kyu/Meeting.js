@@ -25,3 +25,13 @@ function meeting(s) {
     return s.toUpperCase().split(";").split(":").reverse().join(",") //cannot double split?
     //need to map to change it? 
 }
+
+//Best practice:
+
+function meeting(s) {
+    let string = s.toUpperCase().split(';')
+                  .map(x => x.split(':').reverse().join(', '))
+                  .sort()
+                  .join(')(')
+    return '(' + string + ')'
+  }
