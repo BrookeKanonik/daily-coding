@@ -65,26 +65,21 @@ var searchInsert = function(nums, target) {
     } 
 };
 
-//Other solution (binary search):
+//Other solution (binary search as well):
 
-/**
- * @param {number[]} nums
- * @param {number} target
- * @return {number}
- */
 var searchInsert = function(nums, target) {
-    function mergeSort(arr,target,left,right){
-        if(left>right){
-             return left
-        }
-        const mid=Math.floor((left+right)/2)
-        if(arr[mid]==target) return mid
-        else if(arr[mid]<target){
-            return mergeSort(arr,target,mid+1,right)
-        }else{
-            return mergeSort(arr,target,left,mid-1)
+    let lo = 0, hi = nums.length; // we might need to inseart at the end
+    while(lo < hi) { // breaks if lo == hi
+        let mid = lo + Math.floor((hi-lo)/2); // always gives the lower mid
+        if (target > nums[mid]) {
+            lo = mid + 1 // no way mid is a valid option
+        } else {
+            hi = mid // it might be possibe to inseart @ mid
         }
     }
-
-    return mergeSort(nums,target,0,nums.length-1)
+    return lo;
 };
+
+//Resource for binary search:
+
+//https://leetcode.com/problems/search-insert-position/solutions/423166/binary-search-101/
