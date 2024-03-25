@@ -1,7 +1,6 @@
 //Instructions:
 
 /*
-
 There is a queue for the self-checkout tills at the supermarket. Your task is write a function to calculate the total time required for all the customers to check out!
 
 input
@@ -32,7 +31,6 @@ The front person in the queue (i.e. the first element in the array/list) proceed
 N.B. You should assume that all the test input will be valid, as specified above.
 
 P.S. The situation in this kata can be likened to the more-computer-science-related idea of a thread pool, with relation to running multiple processes at the same time: https://en.wikipedia.org/wiki/Thread_pool
-
 */
 
 //Initial thoughts (breaking down each case it would work and then trying to piece into one)
