@@ -67,3 +67,12 @@ function stockList(listOfArt, listOfCat) {
       return '(' + c + ' : ' + (qs[c] | 0) + ')';  
     }).join(' - ');  
   }
+
+/*
+Bitwise OR qs[cat] with 0. This returns the value of qs[cat] if it is not undefined, else it returns 0.
+Ex: 42 | 0 would return 42. But undefined | 0 would return 0.
+Split the art string to an array and get the number which would be at 1st index after splitting.
+The number is currently in string, so convert it into number by prepending with +. It would be similar to parseInt(art.split(' ')[1])
+Sum the above two values.
+Store it in qs[cat]
+*/
