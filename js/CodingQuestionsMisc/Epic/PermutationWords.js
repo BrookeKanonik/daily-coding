@@ -27,7 +27,7 @@ function permute(nums) {
       const remainingNums = nums.slice(0, i).concat(nums.slice(i +  1));
       const remainingNumsPermuted = permute(remainingNums);
      for (let j = 0; j < remainingNumsPermuted.length; j++) {
-        const permutedArray =                                      [currentNum].concat(remainingNumsPermuted[j]);
+        const permutedArray = [currentNum].concat(remainingNumsPermuted[j]);
         result.push(permutedArray);
       }
     }
