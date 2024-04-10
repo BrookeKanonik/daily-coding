@@ -16,18 +16,24 @@ function checkCode(correctCode,inputCode){
     }else {
         let pointerOne = correctCode.indexOf(inputCode[0]);
         let pointerTwo;
-        for (let i = 1; i < inputCode.length; i++){     
+        for (let i = 1; i < inputCode.length; i++){ 
+            // console.log(correctCode)
+            if (i >= 2) {
+                pointerOne = correctCode.indexOf(inputCode[i-1])
+            }    
             pointerTwo = correctCode.indexOf(inputCode[i])
-            if (pointerTwo < pointerOne || pointerOne === -1){
+            // console.log(pointerOne, pointerTwo)
+            if (pointerTwo < pointerOne || pointerOne === -1 || (pointerOne === pointerTwo && correctCode.indexOf(inputCode[i]) === correctCode.lastIndexOf(inputCode[i]))){
                 return false
             }
-            pointerOne = pointerTwo
+            if (pointerOne === pointerTwo){
+                correctCode = correctCode.slice(pointerTwo + 1)
+            } else {
+                correctCode = correctCode.slice(pointerTwo)
+            }
         }
     }
     return true
 }
 
-//works with unique numbers 
-
-//remove items from a list/array???? filter???? for non unique numbers
-//go to the first digit and see if there is the other digit after it. us lastIndexOf???
+//need to add something to check on repeating digits not looking at same number 
