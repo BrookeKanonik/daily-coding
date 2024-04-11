@@ -17,7 +17,7 @@ function allPrimes(num){
                 // console.log('j', j)
                 if ((!i % primes[j] === 0) && j === primes.length -1){ //if it went through the entire primes
                     primes.push(i)
-                    break;
+                    break; //need to break or it will loop through once again
                 }
                 if (i % primes[j] === 0){
                     break; //get out if its not prime
