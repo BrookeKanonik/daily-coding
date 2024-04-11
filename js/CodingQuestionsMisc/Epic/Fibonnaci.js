@@ -6,6 +6,28 @@ The Fibonacci sequence is a series of numbers in which each number is the sum of
 
 //Recursive:
 
+
+
 //Iteratively:
 
+function fib(num){
+    let first = 0
+    let second = 1
+    let fibNumbers = []
+    if (num >= 1){
+        fibNumbers.push(0)
+    }
+    if (num >=2){
+        fibNumbers.push(1)
+    }
+    for (let i=3; i <= num; i++){
+        let temp = first + second
+        fibNumbers.push(temp)
+        first = second
+        second = temp
+    }
+    return fibNumbers
+}
+
 //Using Memoization:
+
