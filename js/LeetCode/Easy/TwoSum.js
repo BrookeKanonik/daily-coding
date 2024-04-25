@@ -53,3 +53,26 @@ var twoSum = function(nums, target) {
         }
         }
 };
+
+//Redone code:
+
+/**
+ * @param {number[]} nums
+ * @param {number} target
+ * @return {number[]}
+ */
+var twoSum = function(nums, target) {
+    let storedValues = {};
+    //store data into an object and see if there is an existing element that when added
+    //gives you that value, if not then store that value
+    for (let i=0; i<nums.length; i++){
+        //subtract curr from target and see if that value is stored in the object
+        let neededValue = target - nums[i] 
+        if (storedValues[neededValue] !== undefined){
+            return [storedValues[neededValue],i]
+        }else{
+            storedValues[nums[i]] = i 
+        }
+    }
+};
+

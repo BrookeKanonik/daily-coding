@@ -121,3 +121,16 @@ let permute = function (nums) {
 
 // space is 0(n!) for the first position we have n numbers, then n-1, then n-2 ...
 //time will be 0(n!) because of the recursive structure we need to look n then n-1 times then n-2.
+
+
+let permute = function (nums) {
+  if (nums.length === 0)  return [[]]
+  if (nums.length === 1) return [nums]
+  if (nums.length ===2) return [[nums[0], nums[1]], [nums[1], nums[0]]]
+
+  return nums.map(n => {
+    const rest = n.filter(element => element !== n)
+    let perm = permute(rest)
+    perm.map(element => [n,...element])
+  }).flat(1)
+}
