@@ -31,3 +31,13 @@ function isPalindrome(x) { //we are taking in a number and seeing if it is the s
     let newOne = String(x).split('').reverse().join('') //reversing the numbers
     return newOne === original
     }
+
+//Updated:
+
+/**
+ * @param {number} x
+ * @return {boolean}
+ */
+var isPalindrome = function(x) {
+    return x === Number(x.toString().split('').reverse().join(''))
+};
