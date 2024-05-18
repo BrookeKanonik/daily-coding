@@ -10,13 +10,13 @@ function findOccur (arr) {
         }
     }
 
-    let result = Object.keys(storing).map((key) => [key, storing[key]]).sort(function(a,b){
+    let result = Object.keys(storing).map((key) => [key + ' ', String(storing[key]) + '  ']).sort(function(a,b){
         if (b[1]=== a[1]){ //organize letters
             return a[0].charCodeAt()- b[0].charCodeAt()
         }
         return b[1]-a[1]
     })
-    return result
+    return result.join('').replaceAll(',', '').split('  ').slice(0,-1)
 }
 
 
@@ -44,5 +44,5 @@ function sortAlpha(result){
         result[j][0] = temp
     }
 }
-return result
+    return result
 }
