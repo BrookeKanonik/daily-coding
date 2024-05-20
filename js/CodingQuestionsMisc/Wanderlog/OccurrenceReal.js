@@ -120,3 +120,27 @@ like to see how you're able to solve problems without them!
 
 //Initial code (timed):
 
+function occur(names){
+    let stored = {}
+    for (let i=0; i<names.length; i++){
+        if(stored[names[i]]!== undefined){
+            stored[names[i]] += 1 //update val
+        }else{
+            stored[names[i]] = 1
+        }
+    } //create an object to store how many times weve seen the items
+    let converts = Object.keys(stored).map(key => [key, stored[key]]).sort(function(a,b){
+        if (a[1] === b[1]){
+            return a[0] - b[0]
+        }else{
+            return b[1] - a[1]
+        }
+    })
+    .map(element => {
+        return String(element.flat()).replaceAll(',',' ')
+    })
+
+    //[['apples',2] , ['bananas',2]]
+
+    return converts
+}

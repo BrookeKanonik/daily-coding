@@ -111,3 +111,23 @@ Only user id 60 has signed out and was not signed in for more than maxSpan = 100
 */
 
 //
+
+//convert the logs to be their own array
+
+function processLogs(logs,maxSpan){
+    let res = []
+    let storeVals = {} //create a map to store the sign in and sign out time
+    for (let i=0; i<logs.length; i++){ //going through each log
+        //sign out is bigger than sign in
+        //see if the id matches what we have in our hash map. i am looking at a string so...
+        let curr = logs[i].split(' ') //we will have ['99', '1' ,'signin']
+        if (storeVals[curr[0]] !== undefined){
+            if (Math.abs(storeVals[curr[0]] - curr[1]) <= maxSpan){ //if 100 and 90
+                res.push(curr[0])
+            }
+        }else {
+            storeVals[curr[0]] = curr[1] //set it up if it is not the case
+        }
+    }
+    return res.sort((a,b)=> a-b)
+}
