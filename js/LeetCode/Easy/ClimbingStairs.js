@@ -49,3 +49,26 @@ var climbStairs = function(n) {
 };
 
 // O(n)
+
+//Second attempt (same, but different loop start val)
+
+/**
+ * @param {number} n
+ * @return {number}
+ */
+var climbStairs = function(n) {
+    if (n===1){
+        return 1
+    }else if (n===2){
+        return 2
+    }else {
+        let first = 1;
+        let second = 2;
+        for (let i =2; i<n; i++){
+            let temp = second
+            second = first + second
+            first = temp
+        }
+        return second;
+    }
+};
