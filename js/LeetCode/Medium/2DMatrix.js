@@ -109,3 +109,44 @@ let searchMatrix = function (matrix, target) {
     }
     return false;
 }
+
+//Code after trying again (need to look at shortened code):
+
+/**
+ * @param {number[][]} matrix
+ * @param {number} target
+ * @return {boolean}
+ */
+var searchMatrix = function(matrix, target) {
+  //first determine if the first item in the array is less than or equal to the target
+  let currVal = 0;
+  if (matrix.length ===1){ //condition it is just length 1
+      for (let a=0; a <matrix[0].length; a++){
+          if (target === matrix[0][a]){ //checking if current square is desired value
+              return true;
+          }
+      }
+      return false;
+  }
+  for (let i=1; i<matrix.length; i++){ //if it is bigger than length 2
+      if (target < matrix[i][0]){ //if the current row is bigger than target, go to the target row
+          for (let j=0; j<matrix[currVal].length; j++){
+              if (target === matrix[currVal][j]){
+                  return true;
+              }
+          }
+          return false;
+      }
+      if (target === matrix[i][0]){ //added incase it is just [[1], [3]]
+          return true;
+      }
+      currVal ++;
+  }
+  //go through the last one if it is possibly there
+  for (let l=0; l<matrix[0].length; l++){
+      if (target === matrix[matrix.length-1][l]){
+          return true;
+      }
+  }
+  return false;
+};
