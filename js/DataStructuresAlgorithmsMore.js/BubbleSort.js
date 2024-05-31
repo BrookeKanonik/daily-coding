@@ -13,5 +13,25 @@ function bubbleSort(arr){
     return arr
   }
 
-  //worst case is O(n^2) best time complexity would be O(n) if it is already sorted
-  //space complexity worst is O(1)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
