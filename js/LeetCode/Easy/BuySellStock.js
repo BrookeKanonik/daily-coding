@@ -28,64 +28,89 @@ Constraints:
 0 <= prices[i] <= 104
 */
 
-//Initial code (works but time limit exceeded):
-/**
- * @param {number[]} prices
- * @return {number}
- */
-var maxProfit = function(prices) {
-    //want to loop through and determine if it is increasing/decreasing. if it is all decreasing, we return 0
-    // let profit = 0
-    // let currSmall=0
-    // let currLarge = 0
-    // for (let i=0; i<prices.length -1; i++){ //not going to go straight to the last item
-    //     if (prices[i] < prices[i+1] && currSmall > prices[i]){
-    //         //see if the current amount is smaller
-    //         currSmall = prices[i]
-    //     }
-    //     if (prices[i+1] > currLarge && currLarge !== prices[i+1] && currLarge !== currSmall &&){
-    //         currLarge = prices[i+1]
-    //     }
-    //     //also need to check location and make sure large is not behind smallest 
-    // }
-    //double for loop?
-    let profit = 0;
-    for (let i=0; i <prices.length-1; i++){
-        for (let j=1+i; j<prices.length; j++){
-            if (prices[j] > prices[i] && prices[j]-prices[i] > profit){ //NEED TO DO J > I
-                profit = prices[j] - prices[i]
-            }
-        }
-    }
-    return profit;
-};
+// //Initial code (works but time limit exceeded):
+// /**
+//  * @param {number[]} prices
+//  * @return {number}
+//  */
+// var maxProfit = function(prices) {
+//     //want to loop through and determine if it is increasing/decreasing. if it is all decreasing, we return 0
+//     // let profit = 0
+//     // let currSmall=0
+//     // let currLarge = 0
+//     // for (let i=0; i<prices.length -1; i++){ //not going to go straight to the last item
+//     //     if (prices[i] < prices[i+1] && currSmall > prices[i]){
+//     //         //see if the current amount is smaller
+//     //         currSmall = prices[i]
+//     //     }
+//     //     if (prices[i+1] > currLarge && currLarge !== prices[i+1] && currLarge !== currSmall &&){
+//     //         currLarge = prices[i+1]
+//     //     }
+//     //     //also need to check location and make sure large is not behind smallest 
+//     // }
+//     //double for loop?
+//     let profit = 0;
+//     for (let i=0; i <prices.length-1; i++){
+//         for (let j=1+i; j<prices.length; j++){
+//             if (prices[j] > prices[i] && prices[j]-prices[i] > profit){ //NEED TO DO J > I
+//                 profit = prices[j] - prices[i]
+//             }
+//         }
+//     }
+//     return profit;
+// };
 
-/**
- * @param {number[]} prices
- * @return {number}
- */
-var maxProfit = function(prices) {
-    let profit = 0;
-    let highestOverall = 0; //dec as num
-    for (let i=0; i <prices.length-1; i++){
-        if (i === 0 || highestOverall - prices[i] > profit){ //seeing if it is either the first to store the highest or if there is a new profit to do second loop
-        for (let j=1+i; j<prices.length; j++){
-            if (i===0){
-                 //if we are looping through the first 
-                if (prices[j] > highestOverall){
-                    highestOverall = prices[j] //marking the highest after the initial //5
-                }
-            }
-            if (prices[j] > prices[i] && prices[j]-prices[i] > profit){
-                profit = prices[j] - prices[i]
-            }
-        }
-    }
-    
-};
-return profit
-}
+// /**
+//  * @param {number[]} prices
+//  * @return {number}
+//  */
+// var maxProfit = function(prices) {
+//     let profit = 0;
+//     let highestOverall = 0; //dec as num
+//     for (let i=0; i <prices.length-1; i++){
+//         if (i === 0 || highestOverall - prices[i] > profit){ //seeing if it is either the first to store the highest or if there is a new profit to do second loop
+//             for (let j=1+i; j<prices.length; j++){
+//                 if (i===0){
+//                     //if we are looping through the first 
+//                     if (prices[j] > highestOverall){
+//                         highestOverall = prices[j] //marking the highest after the initial //5
+//                     }
+//                 }
+//                 if (prices[j] > prices[i] && prices[j]-prices[i] > profit){
+//                     profit = prices[j] - prices[i]
+//                 }
+//             }
+//         }   
+//     };
+// return profit
+// }
 //dont loop through if highest - current is not bigger than currHighest? 
 
-//Best practice:
+//Initial code (works):
 
+var maxProfit = function (prices){
+    //  let high = [] //do i need to push them into arrays? 
+     // let low = []
+      //high.push(0)
+      let curr = 0
+      let highest = 0;
+  
+      for (let i=1; i < prices.length; i++){
+          if (prices[i] > prices[i-1]){
+              curr = prices[i] - prices[i-1] + curr
+              //high.push(curr) 
+          }else{ //need to also implement if it is the last element
+              if (curr > highest){
+                  highest = curr 
+              }
+              curr =  prices[i] - prices[i-1] + curr
+              if (curr <= 0){
+                  curr = 0
+              }
+              
+          }
+      }
+      return curr > highest ? curr : highest
+  }
+
+console.log(maxProfit([7,1,5,3,6,4]))
