@@ -48,12 +48,35 @@ var groupAnagrams = function(strs) {
                 seen.push(strs[j])
             }
         }
-        if (!seen.includes(strs[i]))curr.push(strs[i])
+        if (!seen.includes(strs[i] || strs[i].length === 0))curr.push(strs[i])
         seen.push(strs[i])
         console.log('the push', curr)
-        if (curr.length > 0) res.push(curr)
+        if (curr.length > 0 ) res.push(curr)
     }
     return res
 };
 
 //delete ones we have seen
+
+//Best practice:
+
+/**
+ * @param {string[]} strs
+ * @return {string[][]}
+ */
+var groupAnagrams = function(strs) {
+    const group = {};
+    const result = [];
+  
+    for (let i = 0; i < strs.length; i++) {
+      const sortStr = strs[i].split('').sort().join('');
+      if (sortStr in group) {
+          group[sortStr] = [...group[sortStr], strs[i]];
+      } else {
+          group[sortStr] = [ strs[i]];
+      }
+    }
+  
+    for (let key in group) result.push(group[key]);
+    return result;
+  };
