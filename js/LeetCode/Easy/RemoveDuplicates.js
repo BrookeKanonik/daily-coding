@@ -88,3 +88,30 @@ var removeDuplicates = function(nums) {
      
    return k;
 };
+
+
+//Initial run through again:
+
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var removeDuplicates = function(nums) {
+    let amount = 1
+    let currInd = 1
+    let numVal = nums[0]
+    for (let i=1; i<nums.length; i++){
+        //if values are different, swap them
+        if (nums[i] > numVal){
+            let temp = nums[i]
+            nums[i] = nums[currInd]
+            nums[currInd] = temp
+
+            numVal = nums[currInd]
+            currInd ++
+            amount ++
+        }
+    }
+    //console.log(nums)
+    return amount
+};
