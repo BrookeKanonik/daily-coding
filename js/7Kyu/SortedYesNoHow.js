@@ -44,9 +44,9 @@ function isSortedAndHow(arr) {
 
 function isSortedAndHow(array) {
   let result = array.join('')
-  return result === array.sort((a,b) => a-b).join('') ? 'yes, ascending' 
-    : result === array.sort((a,b) => b-a).join('') ? 'yes, descending' 
-    : 'no'
+  return result === array.sort((a,b) => a-b).join('') ? 'yes, ascending' :
+         result === array.sort((a,b) => b-a).join('') ? 'yes, descending' :
+         'no'
 } 
 
 //sorting an array mutates the original array 
