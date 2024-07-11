@@ -38,3 +38,15 @@ function isSortedAndHow(arr) {
     return s === a.sort((x, y) => x - y).join`` ? 'yes, ascending' :
            s === a.sort((x, y) => y - x).join`` ? 'yes, descending' : 'no';
   }
+
+
+//Other example:
+
+function isSortedAndHow(array) {
+  let result = array.join('')
+  return result === array.sort((a,b) => a-b).join('') ? 'yes, ascending' 
+    : result === array.sort((a,b) => b-a).join('') ? 'yes, descending' 
+    : 'no'
+} 
+
+//sorting an array mutates the original array 
