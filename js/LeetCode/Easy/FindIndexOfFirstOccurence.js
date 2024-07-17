@@ -80,3 +80,88 @@ var strStr = function(haystack, needle) {
     }
     return -1 //oriignally indexAns but should be -1
 };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//Trying it once again:
+
+//brute force way
+
+var strStr = function(haystack, needle) {
+    let res = Infinity
+    for (let i=0; i < haystack.length; i++){
+        if (haystack.slice(i, i + needle.length) === needle){
+            //check length of needle
+            if ( i < res ){
+                res = i
+            }
+        }
+    } 
+    return res === Infinity ? -1 : res 
+};
+
+var strStr = function(haystack, needle) {
+    //two pointer 
+    let haystackRev = haystack.split('').reverse().join('')
+    let initial = 0
+    let end = haystack.length - 1
+    let res = Infinity
+    while (initial !== end){
+            if (haystack.slice(initial, initial + needle.length) === needle){
+                //check length of needle
+                if ( initial < res ){
+                    res = initial
+                }
+            //switch 
+            }else if (haystack.slice(end - needle.length, end) === needle){
+                if ( end < res ){
+                    res = end
+                }
+            }
+        initial++;
+        end--;
+    } 
+    return res === Infinity ? -1 : res 
+};

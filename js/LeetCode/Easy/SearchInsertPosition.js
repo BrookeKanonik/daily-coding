@@ -83,3 +83,4 @@ var searchInsert = function(nums, target) {
 //Resource for binary search:
 
 //https://leetcode.com/problems/search-insert-position/solutions/423166/binary-search-101/
+
