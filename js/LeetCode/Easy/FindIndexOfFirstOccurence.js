@@ -165,3 +165,7 @@ var strStr = function(haystack, needle) {
     } 
     return res === Infinity ? -1 : res 
 };
+
+//One liner:
+
+const strStr = (haystack, needle) => haystack.indexOf(needle)
