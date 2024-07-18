@@ -84,3 +84,47 @@ var searchInsert = function(nums, target) {
 
 //https://leetcode.com/problems/search-insert-position/solutions/423166/binary-search-101/
 
+var searchInsert = function(nums, target) {
+    let lo = 0
+    let high = nums.length
+    while (lo < high ){
+        let middle = Math.floor((high+lo)/2)
+        if (nums[middle] < target){
+            lo = middle + 1
+        }else{
+            high = middle
+        }
+    }
+    return lo;
+};
+
+//Other codes:
+
+/**
+ * @param {number[]} nums
+ * @param {number} target
+ * @return {number}
+ */
+var searchInsert = function(nums, target) {
+    // includes,indexOf,rest operator,arrow function,sorting via sort method
+     if(nums.includes(target))  //includes method
+      return nums.indexOf(target); //returns index method//
+     return [...nums, target].sort((a,b) => a-b).indexOf(target); //return where it shold be inserted//
+
+    
+};
+
+var searchInsert = function(nums, target) {
+    let left = 0, right = nums.length - 1;
+    while (left <= right) {
+        let mid = Math.floor((left + right) / 2);
+        if (nums[mid] == target) {
+            return mid;
+        } else if (nums[mid] < target) {
+            left = mid + 1;
+        } else {
+            right = mid - 1;
+        }
+    }
+    return left;    
+};
