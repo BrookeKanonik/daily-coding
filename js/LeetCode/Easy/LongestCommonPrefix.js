@@ -59,3 +59,47 @@ var longestCommonPrefix = function(strs) { //taking in a parameter that is an ar
     }
     return word
 }; //returning a value as a string of the longest common prefix all the strings have, if they do not have anything in common, return ""
+
+//Initial code round 2 (works):
+
+/**
+ * @param {string[]} strs
+ * @return {string}
+ */
+var longestCommonPrefix = function(strs) {
+    let index = -1
+    let result = ''
+    let temp = ''
+    while (index < strs[0].length){
+        index++;
+        temp=''
+        for (let i=0; i<strs.length; i++){
+            if(strs[i][index]=== undefined){ //did we already finish one word?
+                return result;
+            }
+            if (temp==='') temp = strs[i][index] //did we set the temp?
+            if (temp !== strs[i][index]) return result
+            if (i === strs.length -1) result += temp
+        }
+    }
+    return result
+};
+
+//Other solution:
+
+/**
+ * @param {string[]} strs
+ * @return {string}
+ */
+var longestCommonPrefix = function(s) {
+    if(s.length === 0) return "";
+    let prefix = s[0];
+    for(let word of s ) {
+        while(word.indexOf(prefix) !== 0) {
+            prefix = prefix.slice(0, -1);
+            if(prefix === "") return "";
+        }
+        if(prefix === "") return "";
+    }
+    return prefix
+};
