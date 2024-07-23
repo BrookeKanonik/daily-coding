@@ -31,4 +31,4 @@ function checkExam(array1, array2) {
        }
      })
      return totalScore > 0 ? totalScore : 0;
-   }
+}
