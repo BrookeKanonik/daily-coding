@@ -44,12 +44,12 @@ var searchRange = function(nums, target) {
         if (nums[middle] === target && nums[middle-1] !== target){
             start = middle //found the left
             //need to recalibrate
-            low = middle
+            low = middle + 1
                
         }
         if (nums[middle] === target && nums[middle+1] !== target){
             end = middle        
-            high = middle
+            high = middle - 1
         }
 
         low ++
@@ -60,3 +60,38 @@ var searchRange = function(nums, target) {
 };
 
 console.log(searchRange([5,7,7,8,8,10],8))
+
+//Solution:
+
+var searchRange = function(nums, target) {
+    if (nums.length === 0) return [-1,-1]
+    let left =0; 
+    let right = nums.length -1
+    let lo = -1
+    let hi = -1
+
+    while(left <= right){
+        const mid = Math.floor((left + right)/2)
+        if (target <= nums[mid]){
+            right = mid -1
+        }else {
+            left = mid + 1
+        }
+    }
+    lo = left;
+    left =0; 
+    right = nums.length -1
+
+    while(left <= right){
+        const mid = Math.floor((left + right)/2)
+        if (target < nums[mid]){
+            right = mid -1
+        }else {
+            left = mid + 1
+        }
+    }
+    hi = right;
+    return lo <= hi ? [lo,hi] : [-1,-1]
+};
+
+//resource: https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/description/
