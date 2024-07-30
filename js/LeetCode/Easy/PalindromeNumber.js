@@ -41,3 +41,27 @@ function isPalindrome(x) { //we are taking in a number and seeing if it is the s
 var isPalindrome = function(x) {
     return x === Number(x.toString().split('').reverse().join(''))
 };
+
+//Additional code/ optimization note
+
+/**
+ * @param {number} x
+ * @return {boolean}
+ */
+
+//take in an integer that can be negative or positive
+//-9, 101, 22, 7
+function isPalindrome(num){
+    //'-9'
+    num = num.toString()
+    //create a new var
+    let reverseNum = ''
+    for (let i=num.length-1; i >= 0; i--){
+        reverseNum += num[i]
+    }
+    return num === reverseNum
+}
+
+//reverse the number and return T/F if it is the same as the original. -22 would not be because that would be -22 != 22- 
+
+//optimization could be a two pointer approach with a while loop 
