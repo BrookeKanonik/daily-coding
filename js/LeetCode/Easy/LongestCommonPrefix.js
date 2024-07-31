@@ -103,3 +103,48 @@ var longestCommonPrefix = function(s) {
     }
     return prefix
 };
+
+//Another shot:
+
+//taking in an array of words where we havae to find the common prefixes for each
+
+//example ['frog', 'frown', 'froyo'] => 'fro'
+//['price', 'apple' , 'candy'] => ''
+var longestCommonPrefix = function(strs) {
+    let common = ''
+    //need to go through the array and look at the first letters of each 
+    for (let i=0; i <strs[0].length; i++){ //going through words
+        let curr = strs[0][i]
+        for (let j=0; j < strs.length; j++){ //go through letters
+            if( curr === strs[j][i]){
+                if (j === strs.length-1){
+                    common += curr
+                }
+            }else{
+                return common;
+            }
+        }
+    }
+    return common
+}
+//will need to return the characters that they all start with and have in common. if they do not have anything in common, we will return an empty string.
+
+//Another clean way to use:
+
+/**
+ * @param {string[]} strs
+ * @return {string}
+ */
+var longestCommonPrefix = function(strs) {
+    let result = '',
+        prefix = strs[0];
+    
+    for (let i = 0; i < prefix.length; i++) {
+      if (strs.some(str => str[i] !== prefix[i])) {
+        break;
+      }
+      result += prefix[i];
+    }
+    
+    return result;
+  };

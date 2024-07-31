@@ -65,3 +65,16 @@ function isPalindrome(num){
 //reverse the number and return T/F if it is the same as the original. -22 would not be because that would be -22 != 22- 
 
 //optimization could be a two pointer approach with a while loop 
+function isPalindrome(num){
+    num=num.toString()
+    let left = 0
+    let right = num.length - 1
+    while(right >= left ){
+        if (num[left] !== num[right]){
+            return false;
+        }
+        left ++;
+        right --;
+    }
+    return true;
+}

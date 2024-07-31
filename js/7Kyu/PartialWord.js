@@ -32,3 +32,11 @@ function wordSearch(query, seq){
     const arr = seq.filter(e => e.toLowerCase().includes(query))
     return arr.length ? arr : ['Empty']
   }
+
+//My Second Attempt:
+
+function wordSearch(query, seq){
+    query = query.toLowerCase()
+    seq = seq.filter (element => element.toLowerCase().includes(query))
+    return seq.length < 1 ? ['Empty'] : seq
+  }
