@@ -77,3 +77,25 @@ var maxArea = function(height) {
 
 //Time Complexity: 0(n) //since we just have a while loop
 //Space Complexity: 0(1) //we are not create any extra arrays, data structures etc 
+
+//New take:
+
+var maxArea = function(height) {
+    //two pointers 
+    let left = 0
+    let right = height.length - 1 // 8
+    let area = 0
+
+    while (left < right){
+        let width = Math.min(height[left], height[right])
+        let length = right - left
+
+        if (length * width > area) area = length * width
+        if (width === height[left]){
+            left ++
+        }else {
+            right --;
+        }
+    }
+    return area
+};
