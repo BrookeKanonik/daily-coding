@@ -114,3 +114,20 @@ var maxProfit = function (prices){
   }
 
 console.log(maxProfit([7,1,5,3,6,4]))
+
+
+/**
+ * @param {number[]} prices
+ * @return {number}
+ */
+
+function maxProfit(prices) {
+    let lowest = prices[0]
+    let highest = 0
+
+    for (let i=1; i<prices.length; i++){
+        if (prices[i] - lowest > highest ) highest = prices[i] - lowest
+        if (lowest > prices[i]) lowest = prices[i]
+    }
+    return highest 
+}
