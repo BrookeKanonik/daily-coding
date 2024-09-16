@@ -67,3 +67,25 @@ var isHappy = function (n) {
 };
 
 isHappy(19)
+
+//Second Attempt Answer:
+
+/**
+ * @param {number} n
+ * @return {boolean}
+ */
+var isHappy = function(n) {
+    let storedVals = {}
+    while(storedVals[n] === undefined){
+        storedVals[n] = 'seen'
+        let s = n.toString()
+        let total = 0
+        for (let i=0; i<s.length; i++){
+            total += Number(s[i])**2
+        }
+        n = total
+        console.log(total, storedVals)
+    }
+
+    return n === 1 ? true : false
+};
