@@ -78,3 +78,17 @@ function isPalindrome(num){
     }
     return true;
 }
+
+//Other shot at this (neater to read and look at, otherwise looping through with two pointers is the way to go):
+
+/**
+ * @param {number} x
+ * @return {boolean}
+ */
+
+
+function isPalindrome(num){
+    num = num.toString()
+    return num.split('').reverse().join('') === num
+}
+
