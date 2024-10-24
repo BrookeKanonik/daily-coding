@@ -36,3 +36,19 @@ function duplicateEncode(word){
       })
       .join('');
   }
+
+//Another solution:
+
+function duplicateEncode(word){
+  //use hashmap
+  let finalString = ''
+  word = word.toLowerCase()
+  for (let i=0; i< word.length; i++){
+   if (word.indexOf(word[i]) === word.lastIndexOf(word[i])){
+     finalString+= '('
+   }else {
+      finalString += ')'
+   }
+  }
+return finalString
+}
