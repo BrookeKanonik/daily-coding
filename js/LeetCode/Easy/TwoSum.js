@@ -76,4 +76,22 @@ var twoSum = function(nums, target) {
     }
 };
 
+//Code after coming back to it:
+
+/**
+ * @param {number[]} nums
+ * @param {number} target
+ * @return {number[]}
+ */
+var twoSum = function(nums, target) {
+    let storing = {}
+    for (let i=0; i<nums.length; i++){ //go through list
+        let currentNeeded = target - nums[i]
+        if (storing[currentNeeded] !== undefined){
+            return [storing[currentNeeded], i]
+        }else{
+            storing[nums[i]] = i
+        }
+    }
+};
 
