@@ -106,3 +106,86 @@ var addTwoNumbers = function(l1, l2) {
     
     
 };
+
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val, next) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.next = (next===undefined ? null : next)
+ * }
+ */
+/**
+ * @param {ListNode} l1
+ * @param {ListNode} l2
+ * @return {ListNode}
+ */
+
+let newList = new ListNode()
+let firstNum = ''
+let secondNum = ''
+var addTwoNumbers = function(l1, l2) {
+    //go through whcihever is longer
+    // let longest = 0;
+    // if (l1.size > l2.size){
+    //     longest = l1
+    // }else{
+    //     longest = l2 //can write as terinary operator 
+    // }
+    // console.log(longest.size)
+    while (l1 || l2){
+        console.log(l1.val)
+        l1.val == undefined ? firstNum = firstNum : firstNum += l1.val //remove += 0
+        l2.val == undefined ? secondNum = secondNum : secondNum += l2.val
+
+        l1 = l1.next;
+        l2 = l2.next;
+    } //go through each and add
+    firstNum = parseInt(firstNum)
+    secondNum = parseInt(secondNum)
+    newTotal = firstNum + secondNum
+
+    console.log(newTotal)
+    newTotalStr = newTotal.toString()
+    //make this number a linked list NEED TO WORK ON
+    newList.val = parseInt(newTotalStr[newTotalStr.length-1]) //first part
+    //newList = newList.next
+    console.log(newList)
+    //newList = newList.next
+    console.log(newList)
+    for (let i=newTotalStr.length -2; i>=0; i--){
+        
+        newList.next
+        newList.val = parseInt(newTotalStr[i])
+        //newList = newList.next
+        console.log(newList)
+        //newList = newList.next;
+    }
+
+    return newList
+
+    //similar to mine:
+
+    var addTwoNumbers = function(l1, l2) {
+        let num1 = '', num2 = ''
+    
+        while (l1) {
+            num1 = l1.val + num1
+            l1 = l1.next
+        }
+    
+        while (l2) {
+            num2 = l2.val + num2
+            l2 = l2.next
+        }
+    
+        const sum = (BigInt(num1) + BigInt(num2)).toString()
+    
+        let list = null
+        let i = 0
+        while (i < sum.length) {
+            list = new ListNode(sum[i], list)
+            i++
+        }
+    
+        return list
+    };
